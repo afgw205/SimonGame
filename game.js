@@ -11,9 +11,12 @@ function nextSequence() {
     var randomChosenColor = buttonColors[randomNumber];
     gamePattern.push(randomChosenColor);
 
-    $("#" + randomChosenColor).fadeIn(100).fadeOut(100).fadeIn(100);
+    setTimeout(() => {
+        $("#" + randomChosenColor).fadeIn(100).fadeOut(100).fadeIn(100);
+        playSound(randomChosenColor);
 
-    playSound(randomChosenColor);
+    }, 500);
+
 
     $("h1").text("Level " + level);
     level++;
@@ -59,7 +62,6 @@ function startOver() {
     level= 0;
     gamePattern = [];
     userClickedPattern = [];
-    $("h1").text("Press A Key to Start");
 
 }
 
